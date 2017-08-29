@@ -1,0 +1,29 @@
+{
+    "name": "briarbear/yii2-log",
+    "description": "Run Yii2 With Swoole.",
+    "keywords": [
+        "yii2",
+        "swoole",
+        "yii2",
+        "logstash",
+        "briarbear"
+    ],
+    "homepage": "https://github.com/lscgzwd/briarbear",
+    "license": "Apache License 2.0",
+    "authors": [
+        {
+            "name": "lscgzwd",
+            "email": "lscgzwd@gmail.com",
+            "homepage": "http://github.com/lscgzwd"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "yiilog\\": "src/"
+        }
+    },
+    "require": {
+        "php":">=7.0",
+        "yiisoft/yii2": "~2.0.0"
+    }
+}
