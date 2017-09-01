@@ -32,7 +32,7 @@ class EmailTarget extends \yii\log\EmailTarget
         }
         $messages = array_map([$this, 'formatMessage'], $this->messages);
 
-        array_unshift($messages, 'server:' . gethostname(), 'trackId:' . $trackId);
+        array_unshift($messages, 'server:' . gethostname());
         $body = wordwrap(implode("\n", $messages), 70);
         $this->composeMessage($body)->send($this->mailer);
     }
