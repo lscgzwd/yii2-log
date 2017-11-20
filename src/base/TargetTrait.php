@@ -23,6 +23,7 @@
 
 namespace yiilog\base;
 
+use app\enter\fw\log\Trace;
 use yii\helpers\ArrayHelper;
 use yii\log\Logger;
 
@@ -163,8 +164,15 @@ trait TargetTrait
         if (isset($message[4]) === true) {
             $result['trace'] = $message[4];
         }
-        // 加入服务器名称
+        // 加入服务器名称和日志ID 方便线上追踪
         $result['server'] = gethostname();
+        $traceId = '';
+        if (defined('BRIARBEAR_PATH')) {
+            $traceId = \Start::$instance->logTrackId;
+        } elseif (defined('YII_TRACK_ID')) {
+            $traceId = YII_TRACK_ID;
+        }
+        $result['traceId'] = $traceId;
 
         return $result;
     }
